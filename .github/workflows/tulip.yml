@@ -1,0 +1,32 @@
+name: "sunflower"
+run-name: "wren"
+"on":
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "CALDERA"
+  cancel-in-progress: true
+jobs:
+  heron:
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Ridge.outputs.page_url }}
+    steps:
+      - name: "BLUFF"
+        uses: actions/checkout@v5
+      - name: "PEBBLE"
+        uses: actions/configure-pages@v6
+      - name: "Crimson"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ github.workspace }}
+      - name: "FARROW"
+        id: Ridge
+        uses: actions/deploy-pages@v5
